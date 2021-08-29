@@ -14,6 +14,7 @@ import io.ktor.routing.patch
 import io.ktor.routing.post
 import io.ktor.routing.route
 import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
 import java.util.UUID
 

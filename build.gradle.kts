@@ -5,6 +5,7 @@ val prometeus_version: String by project
 val exposed_version: String by project
 val h2_version: String by project
 val kodein_version: String by project
+val hikari_version: String by project
 
 plugins {
     application
@@ -34,6 +35,6 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed:$exposed_version")
     implementation("com.h2database:h2:$h2_version")
     implementation("org.kodein.di:kodein-di-generic-jvm:$kodein_version")
-    implementation("io.ktor:ktor-locations:$ktor_version")
+    implementation("com.zaxxer:HikariCP:$hikari_version")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
 }
