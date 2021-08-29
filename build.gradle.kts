@@ -10,6 +10,7 @@ val hikari_version: String by project
 plugins {
     application
     kotlin("jvm") version "1.5.20"
+    id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
 group = "com.example"
@@ -37,4 +38,18 @@ dependencies {
     implementation("org.kodein.di:kodein-di-generic-jvm:$kodein_version")
     implementation("com.zaxxer:HikariCP:$hikari_version")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "com.example.ApplicationKt"
+    }
+}
+
+tasks{
+    shadowJar {
+        manifest {
+            attributes(Pair("Main-Class", "com.example.ApplicationKt"))
+        }
+    }
 }
