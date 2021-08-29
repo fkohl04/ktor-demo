@@ -1,5 +1,0 @@
-RUN	computerdatabase.BasicSimulation	basicsimulation	1629238312006	 	3.6.1
-ERROR	request_1: Failed to build request: No attribute named 'token' is defined 	1629238312499
-ERROR	request_2: Failed to build request: No attribute named 'token' is defined 	1629238312503
-USER	Scenario Name	START	1629238312490
-USER	Scenario Name	END	1629238312504
