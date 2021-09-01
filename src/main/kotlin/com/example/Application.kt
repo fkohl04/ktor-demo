@@ -23,5 +23,4 @@ fun Application.module(testing: Boolean = false) {
     configureRouting(kodein)
     configureMonitoring()
     configureExceptionHandling()
-
 }

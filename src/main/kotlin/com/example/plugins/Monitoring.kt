@@ -12,20 +12,15 @@ import io.ktor.routing.*
 
 fun Application.configureMonitoring() {
     configureCallLogging()
-    configureCustomCallLogging()
     configureMicrometer()
+
+    configureCustomCallLogging()
 }
 
 private fun Application.configureCallLogging() {
     install(CallLogging) {
         level = Level.INFO
         filter { call -> !call.request.path().startsWith("/authenticated-route") }
-    }
-}
-
-private fun Application.configureCustomCallLogging() {
-    install(CustomCallLogging) {
-        pathPrefix = "/authenticated"
     }
 }
 
@@ -40,5 +35,11 @@ private fun Application.configureMicrometer() {
         get("/metrics") {
             call.respond(appMicrometerRegistry.scrape())
         }
+    }
+}
+
+private fun Application.configureCustomCallLogging() {
+    install(CustomCallLogging) {
+        pathPrefix = "/authenticated"
     }
 }

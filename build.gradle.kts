@@ -37,6 +37,7 @@ dependencies {
     implementation("com.h2database:h2:$h2_version")
     implementation("org.kodein.di:kodein-di-generic-jvm:$kodein_version")
     implementation("com.zaxxer:HikariCP:$hikari_version")
+    implementation("org.postgresql:postgresql:42.2.23")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
 }
 

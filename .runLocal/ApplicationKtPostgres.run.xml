@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="ApplicationKtH2" type="JetRunConfigurationType">
+  <configuration default="false" name="ApplicationKtPostgres" type="JetRunConfigurationType">
     <envs>
-      <env name="DATASOURCE_URL" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1" />
+      <env name="DATASOURCE_URL" value="jdbc:postgresql://localhost:5432/demo" />
       <env name="DATASOURCE_USER" value="demo" />
       <env name="DATASOURCE_PASSWORD" value="pass" />
-      <env name="DATASOURCE_DRIVER" value="org.h2.Driver" />
+      <env name="DATASOURCE_DRIVER" value="org.postgresql.Driver" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.example.ApplicationKt" />
     <module name="demo.main" />

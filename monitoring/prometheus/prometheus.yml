@@ -1,0 +1,23 @@
+# prometheus.yml
+# https://prometheus.io/docs/prometheus/latest/configuration/configuration/
+global:
+  scrape_interval:     5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  scrape_timeout:      5s # Default value
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+
+scrape_configs:
+  - job_name: 'prometheus'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'spring-actuator'
+    metrics_path: '/metrics'
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+      - targets: ['host.docker.internal:8081']
+
+  - job_name: 'docker'
+    static_configs:
+        - targets: ['host.docker.internal:9323']  # Docker monitoring

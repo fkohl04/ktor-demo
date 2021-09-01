@@ -2,3 +2,4 @@
 /.idea/
 /.gradle/
 /gatling-charts-highcharts-bundle-3.6.1/results/
+/gatling-charts-highcharts-bundle-3.6.1/target/
