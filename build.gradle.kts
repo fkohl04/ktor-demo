@@ -13,10 +13,10 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
-group = "com.example"
+group = "demo"
 version = "0.0.1"
 application {
-    mainClass.set("com.example.ApplicationKt")
+    mainClass.set("ktor.demo.ApplicationKt")
 }
 
 repositories {
@@ -38,6 +38,9 @@ dependencies {
     implementation("org.kodein.di:kodein-di-generic-jvm:$kodein_version")
     implementation("com.zaxxer:HikariCP:$hikari_version")
     implementation("org.postgresql:postgresql:42.2.23")
+    //Client dependencies
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-apache:$ktor_version")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
 }
 

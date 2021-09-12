@@ -6,7 +6,7 @@
       <env name="DATASOURCE_PASSWORD" value="pass" />
       <env name="DATASOURCE_DRIVER" value="org.h2.Driver" />
     </envs>
-    <option name="MAIN_CLASS_NAME" value="com.example.ApplicationKt" />
+    <option name="MAIN_CLASS_NAME" value="ktor.demo.ApplicationKt" />
     <module name="demo.main" />
     <method v="2">
       <option name="Make" enabled="true" />

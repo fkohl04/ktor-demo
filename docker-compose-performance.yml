@@ -1,0 +1,49 @@
+version: '2'
+services:
+  postgres:
+    image: "postgres:latest"
+    environment:
+      - "POSTGRES_USER=demo"
+      - "POSTGRES_PASSWORD=pass"
+      - "POSTGRES_DB=demo"
+    ports:
+      - 5432:5432
+  prometheus:
+    image: prom/prometheus:v2.29.1
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+  grafana:
+    image: grafana/grafana:7.5.10
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: proton
+    ports:
+      - 3000:3000
+    volumes:
+      - ./monitoring/grafana/provisioning/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - ./monitoring/grafana/provisioning/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards
+  client:
+    image: client
+    build: .
+    ports:
+      - 8082:8082
+    depends_on:
+      - "postgres"
+    environment:
+      DATASOURCE_URL: "jdbc:postgresql://host.docker.internal:5432/demo"
+      DATASOURCE_USER: "demo"
+      DATASOURCE_PASSWORD: "pass"
+      DATASOURCE_DRIVER: "org.postgresql.Driver"
+      MODULES: "ktor.demo.modules.performance.client.ClientKt.module"
+      PORT: "8082"
+      SERVER_URL: "http://host.docker.internal"
+  server:
+    image: server
+    build: .
+    ports:
+      - 8083:8083
+    environment:
+      MODULES: "ktor.demo.modules.performance.server.ServerKt.module"
+      PORT: "8083"

@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Server" type="JetRunConfigurationType">
+    <envs>
+      <env name="MODULES" value="ktor.demo.modules.performance.server.ServerKt.module" />
+      <env name="PORT" value="8083" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="ktor.demo.ApplicationKt" />
+    <module name="demo.test" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

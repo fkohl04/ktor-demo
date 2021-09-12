@@ -3,4 +3,4 @@ EXPOSE 8081
 
 ADD build/libs/demo-0.0.1-all.jar /opt/demo.jar
 
-CMD ["java", "-jar", "/opt/demo.jar"]
+CMD ["java", "-jar", "/opt/demo.jar", "-Xmx2G"]
