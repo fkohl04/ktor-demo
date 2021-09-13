@@ -1,6 +1,7 @@
 package ktor.demo.modules.dsl.book
 
 import io.ktor.application.call
+import io.ktor.auth.authenticate
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
 import io.ktor.response.respond
@@ -13,6 +14,7 @@ import io.ktor.routing.route
 import ktor.demo.modules.dsl.book.AuthorRoutes.BOOKS
 import ktor.demo.modules.dsl.book.AuthorRoutes.BOOK_ID
 import ktor.demo.modules.dsl.book.model.BookCreationDto
+import ktor.demo.modules.dsl.plugins.Security
 import org.kodein.di.Kodein
 import org.kodein.di.generic.instance
 import java.util.UUID
@@ -25,34 +27,36 @@ object AuthorRoutes {
 fun Routing.installBookRoutes(kodein: Kodein) {
     val bookService by kodein.instance<BookService>()
 
-    route("/$BOOKS") {
-
-        get {
-            call.respond(bookService.findAllBooks())
-        }
-
-        post {
-            val book = call.receive<BookCreationDto>()
-            call.respond(bookService.addBook(book))
-        }
-
-        route("/{$BOOK_ID}") {
+    authenticate(Security.CUSTOM_BASIC_AUTH) {
+        route("/$BOOKS") {
 
             get {
-                val id = UUID.fromString(call.parameters[BOOK_ID])
-                call.respond(bookService.findBook(id))
+                call.respond(bookService.findAllBooks())
             }
 
-            patch {
-                val id = UUID.fromString(call.parameters[BOOK_ID])
+            post {
                 val book = call.receive<BookCreationDto>()
-                call.respond(bookService.patchBook(book.withId(id)))
+                call.respond(bookService.addBook(book))
             }
 
-            delete {
-                val id = UUID.fromString(call.parameters[BOOK_ID])
-                bookService.deleteBook(id)
-                call.respond(HttpStatusCode.OK)
+            route("/{$BOOK_ID}") {
+
+                get {
+                    val id = UUID.fromString(call.parameters[BOOK_ID])
+                    call.respond(bookService.findBook(id))
+                }
+
+                patch {
+                    val id = UUID.fromString(call.parameters[BOOK_ID])
+                    val book = call.receive<BookCreationDto>()
+                    call.respond(bookService.patchBook(book.withId(id)))
+                }
+
+                delete {
+                    val id = UUID.fromString(call.parameters[BOOK_ID])
+                    bookService.deleteBook(id)
+                    call.respond(HttpStatusCode.OK)
+                }
             }
         }
     }
