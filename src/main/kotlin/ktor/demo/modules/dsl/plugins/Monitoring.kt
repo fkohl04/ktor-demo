@@ -26,7 +26,6 @@ private fun Application.configureCallLogging() {
     }
 }
 
-
 private fun Application.configureCustomCallLogging() {
     install(CustomCallLogging) {
         pathPrefix = "/authenticated"

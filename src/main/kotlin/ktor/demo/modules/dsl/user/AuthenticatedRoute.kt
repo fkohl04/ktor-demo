@@ -1,7 +1,7 @@
-package ktor.demo.modules.dsl.routeWithAuthentication
+package ktor.demo.modules.dsl.user
 
 import ktor.demo.modules.dsl.plugins.Security.DEMO_USER_JWT
-import ktor.demo.modules.dsl.routeWithAuthentication.AuthenticatedRoute.AUTHENTICATED_ROUTE
+import ktor.demo.modules.dsl.user.AuthenticatedRoute.AUTHENTICATED_ROUTE
 import io.ktor.application.call
 import io.ktor.auth.authenticate
 import io.ktor.auth.jwt.JWTPrincipal
