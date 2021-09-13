@@ -1,8 +1,8 @@
-package ktor.demo.modules.dsl.library.plugins
+package ktor.demo.modules.dsl.plugins
 
-import ktor.demo.modules.dsl.library.author.installAuthorRoutes
-import ktor.demo.modules.dsl.library.book.installBookRoutes
-import ktor.demo.modules.dsl.library.routeWithAuthentication.installAuthenticatedRoute
+import ktor.demo.modules.dsl.author.installAuthorRoutes
+import ktor.demo.modules.dsl.book.installBookRoutes
+import ktor.demo.modules.dsl.routeWithAuthentication.installAuthenticatedRoute
 import io.ktor.application.Application
 import io.ktor.routing.routing
 import org.kodein.di.Kodein

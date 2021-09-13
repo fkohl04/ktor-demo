@@ -1,11 +1,10 @@
-package ktor.demo.modules.dsl.library.book
+package ktor.demo.modules.dsl.book
 
-import ktor.demo.modules.dsl.library.author.model.Author
-import ktor.demo.modules.dsl.library.author.model.Authors
-import ktor.demo.modules.dsl.library.book.model.Book
-import ktor.demo.modules.dsl.library.book.model.Books
+import ktor.demo.modules.dsl.author.model.Author
+import ktor.demo.modules.dsl.author.model.Authors
+import ktor.demo.modules.dsl.book.model.Book
+import ktor.demo.modules.dsl.book.model.Books
 import ktor.demo.shared.extension.selectSingle
-import org.jetbrains.exposed.sql.Query
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insertAndGetId

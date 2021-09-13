@@ -15,7 +15,6 @@
 	"editable": true,
 	"gnetId": null,
 	"graphTooltip": 0,
-	"id": 2,
 	"links": [],
 	"panels": [
 		{
@@ -458,6 +457,14 @@
 					"legendFormat": "{{area}}",
 					"queryType": "randomWalk",
 					"refId": "A"
+				},
+				{
+					"exemplar": true,
+					"expr": "sum(jvm_memory_used_bytes{framework=\"ktor\"})",
+					"hide": false,
+					"interval": "",
+					"legendFormat": "total",
+					"refId": "B"
 				}
 			],
 			"thresholds": [],
@@ -555,6 +562,14 @@
 					"legendFormat": "{{area}}",
 					"queryType": "randomWalk",
 					"refId": "A"
+				},
+				{
+					"exemplar": true,
+					"expr": "sum(jvm_memory_used_bytes{framework=\"spring\"})",
+					"hide": false,
+					"interval": "",
+					"legendFormat": "total",
+					"refId": "B"
 				}
 			],
 			"thresholds": [],
@@ -936,11 +951,11 @@
 			"targets": [
 				{
 					"exemplar": true,
-					"expr": "tomcat_sessions_active_current_sessions",
+					"expr": "tomcat_connections_current_connections",
+					"hide": false,
 					"interval": "",
 					"legendFormat": "",
-					"queryType": "randomWalk",
-					"refId": "A"
+					"refId": "C"
 				}
 			],
 			"thresholds": [],

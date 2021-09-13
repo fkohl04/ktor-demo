@@ -10,9 +10,9 @@ import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
-import ktor.demo.modules.dsl.library.config.DatabaseConfig
-import ktor.demo.modules.dsl.library.plugins.configureMonitoring
-import ktor.demo.modules.dsl.library.plugins.configureSerialization
+import ktor.demo.modules.dsl.config.DatabaseConfig
+import ktor.demo.modules.dsl.plugins.configureMonitoring
+import ktor.demo.shared.plugins.configureSerialization
 import ktor.demo.shared.extension.getPropertyOrEmptyString
 import ktor.demo.shared.extension.initializeDatabaseConnection
 import ktor.demo.shared.extension.selectSingle
@@ -20,6 +20,7 @@ import org.jetbrains.exposed.sql.Op
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.batchInsert
 import org.jetbrains.exposed.sql.select
+import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -48,18 +49,20 @@ fun Application.module() {
     routing {
         route("/") {
             get {
-                var serverResponse = client.get<HttpResponse>("$serverUrl:$serverPort").readText().toInt()
-                    logger.info("Server responded with $serverResponse")
+                var serverResponse = client.get<HttpResponse>("$serverUrl:$serverPort")
+                    .readText()
+                    .toInt()
 
                 var databaseResult: UUID? = UUID.randomUUID()
 
-                    transaction {
+                newSuspendedTransaction {
                     databaseResult = Randoms.select {
                         (Randoms.id eq serverResponse)
                     }.selectSingle()
                         ?.let { it[Randoms.value] }
-                    }
+                }
 
+                logger.info(databaseResult.toString())
                 call.respond("$serverResponse:$databaseResult")
             }
         }

@@ -1,7 +1,7 @@
-package ktor.demo.modules.dsl.library.author
+package ktor.demo.modules.dsl.author
 
-import ktor.demo.modules.dsl.library.author.model.Author
 import io.ktor.features.NotFoundException
+import ktor.demo.modules.dsl.author.model.Author
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance

@@ -25,7 +25,7 @@ services:
       - ./monitoring/grafana/provisioning/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
       - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards
   client:
-    image: client
+    image: ktor-demo-service
     build: .
     ports:
       - 8082:8082
@@ -40,7 +40,7 @@ services:
       PORT: "8082"
       SERVER_URL: "http://host.docker.internal"
   server:
-    image: server
+    image: ktor-demo-service
     build: .
     ports:
       - 8083:8083

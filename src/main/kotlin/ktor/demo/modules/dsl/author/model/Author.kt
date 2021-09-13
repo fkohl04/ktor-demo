@@ -1,4 +1,4 @@
-package ktor.demo.modules.dsl.library.author.model
+package ktor.demo.modules.dsl.author.model
 
 import java.util.UUID
 

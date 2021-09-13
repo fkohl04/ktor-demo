@@ -1,9 +1,9 @@
-package ktor.demo.modules.dsl.library.book
+package ktor.demo.modules.dsl.book
 
-import ktor.demo.modules.dsl.library.author.AuthorRepository
-import ktor.demo.modules.dsl.library.book.model.Book
-import ktor.demo.modules.dsl.library.book.model.BookCreationDto
 import io.ktor.features.NotFoundException
+import ktor.demo.modules.dsl.author.AuthorRepository
+import ktor.demo.modules.dsl.book.model.Book
+import ktor.demo.modules.dsl.book.model.BookCreationDto
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance

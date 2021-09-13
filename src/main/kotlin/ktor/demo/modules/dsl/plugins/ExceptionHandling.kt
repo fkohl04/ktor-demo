@@ -1,6 +1,6 @@
-package ktor.demo.modules.dsl.library.plugins
+package ktor.demo.modules.dsl.plugins
 
-import ktor.demo.modules.dsl.library.plugins.ExceptionHandling.logger
+import ktor.demo.modules.dsl.plugins.ExceptionHandling.logger
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install

@@ -7,7 +7,7 @@ import io.ktor.routing.get
 import io.ktor.routing.route
 import io.ktor.routing.routing
 import kotlinx.coroutines.delay
-import ktor.demo.modules.dsl.library.plugins.configureSerialization
+import ktor.demo.shared.plugins.configureSerialization
 import kotlin.random.Random
 
 fun Application.module() {

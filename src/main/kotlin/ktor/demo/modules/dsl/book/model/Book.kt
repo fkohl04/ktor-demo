@@ -1,6 +1,6 @@
-package ktor.demo.modules.dsl.library.book.model
+package ktor.demo.modules.dsl.book.model
 
-import ktor.demo.modules.dsl.library.author.model.Author
+import ktor.demo.modules.dsl.author.model.Author
 import java.util.UUID
 
 class Book(

@@ -1,9 +1,9 @@
-package ktor.demo.modules.dsl.library.config
+package ktor.demo.modules.dsl.config
 
 import io.ktor.application.Application
-import ktor.demo.modules.dsl.library.author.model.Authors
-import ktor.demo.modules.dsl.library.book.model.Books
-import ktor.demo.modules.dsl.library.config.DatabaseConfig.logger
+import ktor.demo.modules.dsl.author.model.Authors
+import ktor.demo.modules.dsl.book.model.Books
+import ktor.demo.modules.dsl.config.DatabaseConfig.logger
 import ktor.demo.shared.extension.initializeDatabaseConnection
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction

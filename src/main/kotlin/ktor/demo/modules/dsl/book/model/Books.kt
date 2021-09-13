@@ -1,6 +1,6 @@
-package ktor.demo.modules.dsl.library.book.model
+package ktor.demo.modules.dsl.book.model
 
-import ktor.demo.modules.dsl.library.author.model.Authors
+import ktor.demo.modules.dsl.author.model.Authors
 import org.jetbrains.exposed.dao.UUIDTable
 
 object Books : UUIDTable() {

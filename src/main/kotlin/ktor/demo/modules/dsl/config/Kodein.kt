@@ -1,9 +1,9 @@
 package com.example.plugins
 
-import ktor.demo.modules.dsl.library.author.AuthorRepository
-import ktor.demo.modules.dsl.library.author.AuthorService
-import ktor.demo.modules.dsl.library.book.BookRepository
-import ktor.demo.modules.dsl.library.book.BookService
+import ktor.demo.modules.dsl.author.AuthorRepository
+import ktor.demo.modules.dsl.author.AuthorService
+import ktor.demo.modules.dsl.book.BookRepository
+import ktor.demo.modules.dsl.book.BookService
 import io.ktor.application.Application
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind

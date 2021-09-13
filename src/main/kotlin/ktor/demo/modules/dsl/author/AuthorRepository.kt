@@ -1,6 +1,7 @@
-package ktor.demo.modules.dsl.library.author
-import ktor.demo.modules.dsl.library.author.model.Author
-import ktor.demo.modules.dsl.library.author.model.Authors
+package ktor.demo.modules.dsl.author
+
+import ktor.demo.modules.dsl.author.model.Author
+import ktor.demo.modules.dsl.author.model.Authors
 import org.jetbrains.exposed.sql.Query
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.deleteWhere

@@ -1,9 +1,9 @@
-package ktor.demo.modules.dsl.library.plugins
+package ktor.demo.modules.dsl.plugins
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
-import ktor.demo.modules.dsl.library.plugins.Security.DEMO_USER_JWT
+import ktor.demo.modules.dsl.plugins.Security.DEMO_USER_JWT
 import io.ktor.application.Application
 import io.ktor.auth.authentication
 import io.ktor.auth.jwt.JWTPrincipal

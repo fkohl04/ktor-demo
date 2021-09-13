@@ -46,14 +46,14 @@ dependencies {
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "com.example.ApplicationKt"
+        attributes["Main-Class"] = "ktor.demo.ApplicationKt"
     }
 }
 
 tasks{
     shadowJar {
         manifest {
-            attributes(Pair("Main-Class", "com.example.ApplicationKt"))
+            attributes(Pair("Main-Class", "ktor.demo.ApplicationKt"))
         }
     }
 }

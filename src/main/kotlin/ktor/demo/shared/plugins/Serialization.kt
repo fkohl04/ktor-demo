@@ -1,4 +1,4 @@
-package ktor.demo.modules.dsl.library.plugins
+package ktor.demo.shared.plugins
 
 import io.ktor.jackson.*
 import com.fasterxml.jackson.databind.*

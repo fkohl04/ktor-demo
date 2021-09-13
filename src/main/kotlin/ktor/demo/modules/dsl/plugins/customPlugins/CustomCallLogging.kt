@@ -1,4 +1,4 @@
-package ktor.demo.modules.dsl.library.plugins.customPlugins
+package ktor.demo.modules.dsl.plugins.customPlugins
 
 import io.ktor.application.ApplicationCall
 import io.ktor.application.ApplicationCallPipeline

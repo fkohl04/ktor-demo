@@ -1,8 +1,5 @@
-package ktor.demo.modules.dsl.library.book
+package ktor.demo.modules.dsl.book
 
-import ktor.demo.modules.dsl.library.book.AuthorRoutes.BOOKS
-import ktor.demo.modules.dsl.library.book.AuthorRoutes.BOOK_ID
-import ktor.demo.modules.dsl.library.book.model.BookCreationDto
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
@@ -13,6 +10,9 @@ import io.ktor.routing.get
 import io.ktor.routing.patch
 import io.ktor.routing.post
 import io.ktor.routing.route
+import ktor.demo.modules.dsl.book.AuthorRoutes.BOOKS
+import ktor.demo.modules.dsl.book.AuthorRoutes.BOOK_ID
+import ktor.demo.modules.dsl.book.model.BookCreationDto
 import org.kodein.di.Kodein
 import org.kodein.di.generic.instance
 import java.util.UUID

@@ -3,7 +3,6 @@ package ktor.demo.shared.extension
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.application.Application
-import ktor.demo.modules.dsl.library.config.DatabaseConfig
 import ktor.demo.shared.extension.DatabaseConfig.logger
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Query
