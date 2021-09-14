@@ -24,15 +24,12 @@ import io.gatling.http.Predef._
 class SimulationKtor extends Simulation {
 
   val httpProtocol = http
-    // Here is the root for all relative URLs
-    .baseUrl("http://localhost:8082")
-//    .baseUrl("https://murmuring-journey-64164.herokuapp.com")
+    .baseUrl("http://localhost:8084")
 
-  // A scenario is a chain of requests and pauses
-  val scn = scenario("Scenario Name").pace(1.seconds).exec(
+  val scn = scenario("Ktor performance test").exec(
       http("request_1")
         .get("/")
     )
 
-  setUp(scn.inject(constantConcurrentUsers(200).during(600.seconds)).protocols(httpProtocol))
+  setUp(scn.inject(constantConcurrentUsers(2).during(10.seconds)).protocols(httpProtocol))
 }
