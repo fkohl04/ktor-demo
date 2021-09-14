@@ -2,6 +2,7 @@ package ktor.demo.modules.dsl.author
 
 import ktor.demo.modules.dsl.author.model.Author
 import ktor.demo.modules.dsl.author.model.Authors
+import ktor.demo.shared.extension.selectSingle
 import org.jetbrains.exposed.sql.Query
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.deleteWhere
@@ -16,9 +17,11 @@ class AuthorRepository() {
     fun findAuthor(id: UUID): Author? {
         var author: Author? = null
         transaction {
-            Authors.select { (Authors.id eq id) }.selectSingle()?.let {
-                author = fromRow(it)
-            }
+            Authors.select { (Authors.id eq id) }
+                .selectSingle()
+                ?.let {
+                    author = fromRow(it)
+                }
         }
         return author
     }
@@ -32,9 +35,10 @@ class AuthorRepository() {
     fun findAllAuthors(): List<Author> {
         val AuthorList: ArrayList<Author> = arrayListOf()
         transaction {
-            Authors.selectAll().forEach {
-                AuthorList.add(fromRow(it))
-            }
+            Authors.selectAll()
+                .forEach {
+                    AuthorList.add(fromRow(it))
+                }
         }
         return AuthorList
     }
@@ -69,6 +73,4 @@ class AuthorRepository() {
         firstname = it[Authors.firstname],
         lastname = it[Authors.lastname],
     )
-
-    fun Query.selectSingle() = limit(1).firstOrNull()
 }

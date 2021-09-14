@@ -15,13 +15,19 @@ import kotlin.system.measureTimeMillis
 class CustomCallLogging(configuration: Configuration) {
     val prefix = configuration.pathPrefix
 
-    class Configuration {
+    /**
+     * Class containing all plugin configurations
+     */
+    data class Configuration(
         var pathPrefix: String = "/"
-    }
+    )
 
     companion object Feature : ApplicationFeature<ApplicationCallPipeline, Configuration, CustomCallLogging> {
         override val key = AttributeKey<CustomCallLogging>("CustomFeature")
 
+        /**
+         * Used to install this plugin to a call pipeline
+         */
         override fun install(
             pipeline: ApplicationCallPipeline,
             configure: Configuration.() -> Unit
@@ -35,6 +41,9 @@ class CustomCallLogging(configuration: Configuration) {
             return feature
         }
 
+        /**
+         * Measuring and logging request time
+         */
         private suspend fun PipelineContext<Unit, ApplicationCall>.logCallInfosForPathPrefix(
             pathPrefix: String
         ) {

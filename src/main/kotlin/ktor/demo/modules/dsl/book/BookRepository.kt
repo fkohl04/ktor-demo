@@ -18,9 +18,11 @@ class BookRepository() {
     fun findBook(id: UUID): Book? {
         var book: Book? = null
         transaction {
-            (Books innerJoin Authors).select { (Books.id eq id) }.selectSingle()?.let {
-                book = fromRow(it)
-            }
+            (Books innerJoin Authors).select { (Books.id eq id) }
+                .selectSingle()
+                ?.let {
+                    book = fromRow(it)
+                }
         }
         return book
     }
@@ -34,9 +36,10 @@ class BookRepository() {
     fun findAllBooks(): List<Book> {
         val BookList: ArrayList<Book> = arrayListOf()
         transaction {
-            (Books innerJoin Authors).selectAll().forEach {
-                BookList.add(fromRow(it))
-            }
+            (Books innerJoin Authors).selectAll()
+                .forEach {
+                    BookList.add(fromRow(it))
+                }
         }
         return BookList
     }

@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "b1cb4aa7-328e-4390-a795-c7612741c991",
+		"name": "Demo-JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticated Route",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJzY29wZSI6ImRlbW9Vc2VyIn0.Qn8WJgydIevB_9ALP21vSKewi5YHUHp11FMizhAq104",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/authenticated-route",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"authenticated-route"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

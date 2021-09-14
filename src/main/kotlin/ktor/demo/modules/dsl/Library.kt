@@ -1,6 +1,6 @@
 package ktor.demo.modules.dsl
 
-import com.example.plugins.initializeKodein
+import ktor.demo.modules.dsl.config.initializeKodein
 import io.ktor.application.Application
 import ktor.demo.modules.dsl.config.prepareDatabase
 import ktor.demo.modules.dsl.plugins.configureExceptionHandling

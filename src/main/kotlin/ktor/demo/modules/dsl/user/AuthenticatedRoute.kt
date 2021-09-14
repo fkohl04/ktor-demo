@@ -14,7 +14,7 @@ object AuthenticatedRoute {
     const val AUTHENTICATED_ROUTE = "authenticated-route"
 }
 
-fun Routing.installAuthenticatedRoute() {
+fun Routing.installUserRoute() {
 
     authenticate(DEMO_USER_JWT) {
         get("/$AUTHENTICATED_ROUTE") {
