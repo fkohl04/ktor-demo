@@ -21,22 +21,18 @@ import scala.concurrent.duration._
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
-class BasicSimulation extends Simulation {
+class LibraryTest extends Simulation {
 
   val httpProtocol = http
-    // Here is the root for all relative URLs
     .baseUrl("http://localhost:8081")
-//    .baseUrl("https://murmuring-journey-64164.herokuapp.com")
     .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJzY29wZSI6ImRlbW9Vc2VyIn0.Qn8WJgydIevB_9ALP21vSKewi5YHUHp11FMizhAq104")
     .header("Content-Type", "application/json")
 
-  // A scenario is a chain of requests and pauses
   val scn = scenario("Scenario Name").repeat(10, "n") {
     exec(
       http("request_1")
         .get("/authenticated-route")
     ).pause(0.1 seconds)
-      // Note that Gatling has recorded real time pauses
       .exec(
         http("request_2")
           .get("/authors")

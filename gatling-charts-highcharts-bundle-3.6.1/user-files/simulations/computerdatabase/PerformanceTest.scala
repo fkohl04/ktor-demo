@@ -21,7 +21,7 @@ import scala.concurrent.duration._
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
-class SimulationKtor extends Simulation {
+class PerformanceTest extends Simulation {
 
   val httpProtocol = http
     .baseUrl("http://localhost:8084")
@@ -31,5 +31,5 @@ class SimulationKtor extends Simulation {
         .get("/")
     )
 
-  setUp(scn.inject(constantConcurrentUsers(2).during(10.seconds)).protocols(httpProtocol))
+  setUp(scn.inject(constantConcurrentUsers(1000).during(180.seconds)).protocols(httpProtocol))
 }
